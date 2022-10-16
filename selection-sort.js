@@ -14,6 +14,7 @@
     => 이 과정을 반복한다. 
 +) bubble sort와의 또 다른 차이점은, inner loop 밖에서 swap이 이루어진다는 것이다. 
     => 따라서, swap이 일어나지 않음 !== 정렬이 완료됨. 
+    => 드물지만, swap의 수를 최소한으로 줄이고 싶을 때, bubble 대신 selection 정렬을 사용할 수 있다. 
 */
 
 function selectionSort(array = []) {
@@ -25,11 +26,15 @@ function selectionSort(array = []) {
         minIndex = j
       }
     }
-    const temp = array[i]
-    array[i] = array[minIndex]
-    array[minIndex] = temp
-    // ES2015
-    // [array[i], array[minIndex]] = [array[minIndex], array[i]]
+
+    // minIndex가 초기값(i)이 아닐 때에만 swap 한다.
+    if (minIndex !== i) {
+      const temp = array[i]
+      array[i] = array[minIndex]
+      array[minIndex] = temp
+      // ES2015
+      // [array[i], array[minIndex]] = [array[minIndex], array[i]]
+    }
   }
   return array
 }
