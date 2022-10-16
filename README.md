@@ -4,4 +4,5 @@
 
 ### 1. Basic Sort
 
-- 1-1) [bubble sort]()
+- [bubble sort](https://github.com/HyeonJu-C/sort-algorithm/blob/main/bubble-sort.js)
+- [selection sort](https://github.com/HyeonJu-C/sort-algorithm/blob/main/selection-sort.js)
