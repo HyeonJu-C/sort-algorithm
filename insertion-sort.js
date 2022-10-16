@@ -24,3 +24,34 @@ function insertionSort(array = []) {
 }
 
 console.log(insertionSort([3, 1, 4, 2, 5]))
+
+/*
+pseudo code)
+1. pick second element in the array. => currentValue 
+2. compare the second element with the one before it. 
+3. swap if necessary. 
+4. continue to next element. 
+5. if it is in the incorrect order, 
+    iterate through the sorted portion to place the element in right place.
++) [1, 2, 9, 76, 0] => currentValue가 0일 때 
+    => 0(i)과 76(j = i-1)을 비교한다. 
+    => 0 < 76 이므로 76을 한칸 뒤로 옮기면, 배열은 [1, 2, 7, 76, 76]이 된다. 
+    => 0(i)과 7(j = i-2)을 비교한다. => [1, 2, 7, 7, 76]
+    => 0(i)과 2(j = i-3)을 비교한다. => [1, 2, 2, 7, 76]
+    => 0(i)과 1(j = i-4)을 비교한다. => [1, 1, 2, 7, 76]
+    => [0, 1, 2, 7, 76]
+*/
+
+function insertionSort2(array = []) {
+  for (let i = 1; i < array.length; i++) {
+    const currentValue = array[i]
+    // 52번째 line에서 j에 접근하기 위해, j를 var로 선언함
+    for (var j = i - 1; j >= 0 && array[j] > currentValue; j--) {
+      array[j + 1] = array[j]
+    }
+    array[j + 1] = currentValue
+  }
+  return array
+}
+
+console.log(insertionSort2([1, 2, 9, 76, 0]))
